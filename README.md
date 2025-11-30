@@ -1,6 +1,6 @@
 # Simple Image Resizer and Extension Converter
 
-This is a simple Python project that resizes images and converts them to `.webp` format by default. The project uses a virtual environment for managing dependencies and processes images placed in the `original_images` folder. The resized images will be stored in the `resized_images` folder.
+This is a simple Python project that resizes images and converts them to `.webp` format by default. The project uses a virtual environment for managing dependencies and processes images placed in the `original` folder. The resized images will be stored in the `resized` folder.
 
 ## Features
 
@@ -41,7 +41,7 @@ This is a simple Python project that resizes images and converts them to `.webp`
 
 ## Usage
 
-1. **Place your images** into the `original_images/` folder.
+1. **Place your images** into the `original/` folder.
 
 2. **Run the image processor**:
 
@@ -49,11 +49,11 @@ This is a simple Python project that resizes images and converts them to `.webp`
    python image_processor.py
    ```
 
-3. **Check the `resized_images/` folder** to find your resized images, saved by default in the `.webp` format.
+3. **Check the `resized/` folder** to find your resized images, saved by default in the `.webp` format.
 
 ## Customization
 
 You can customize the image size and format by modifying the following variables in the `image_processor.py` file:
 
 - **Size**: Change the values in `output_size = (1000, 1000)` to set your desired image dimensions.
-- **Format**: Modify `filename = f"resized_images/{image_file_name}.webp"` to change the output file format.
+- **Format**: Modify `filename = f"resized/{image_file_name}.webp"` to change the output file format.
