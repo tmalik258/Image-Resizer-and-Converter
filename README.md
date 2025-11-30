@@ -4,9 +4,11 @@ This is a simple Python project that resizes images and converts them to `.webp`
 
 ## Features
 
-- Resizes images to a default size of 1000x1000 pixels.
-- Converts images to `.webp` format.
-- The size and format can be easily customized in the script.
+- Resizes images to a maximum size of 5000x5000 pixels (maintains aspect ratio).
+- Converts images to multiple formats: WebP (default), PNG, JPG, or JPEG.
+- Adjustable image quality settings (1-100, default: 95).
+- Automatic handling of transparency for JPG/JPEG formats (converts RGBA to RGB with white background).
+- Command-line interface for easy customization.
 
 ## Requirements
 
@@ -49,11 +51,45 @@ This is a simple Python project that resizes images and converts them to `.webp`
    python image_processor.py
    ```
 
+   By default, this will process all images in the `original/` folder and convert them to WebP format with quality 95.
+
 3. **Check the `resized/` folder** to find your resized images, saved by default in the `.webp` format.
+
+## Command-Line Options
+
+The script supports several command-line arguments for customization:
+
+- **Format selection** (mutually exclusive):
+  - `--webp` - Convert images to WebP format (default)
+  - `--png` - Convert images to PNG format
+  - `--jpg` - Convert images to JPG format
+  - `--jpeg` - Convert images to JPEG format
+
+- **Quality setting**:
+  - `--quality` or `-q` - Set image quality (1-100, default: 95)
+
+### Examples
+
+Convert to PNG format:
+
+```bash
+python image_processor.py --png
+```
+
+Convert to JPG with custom quality:
+
+```bash
+python image_processor.py --jpg --quality 85
+```
+
+Convert to WebP with highest quality:
+
+```bash
+python image_processor.py --webp -q 100
+```
 
 ## Customization
 
-You can customize the image size and format by modifying the following variables in the `image_processor.py` file:
-
-- **Size**: Change the values in `output_size = (1000, 1000)` to set your desired image dimensions.
-- **Format**: Modify `filename = f"resized/{image_file_name}.webp"` to change the output file format.
+- **Size**: To change the maximum output size, modify `output_size = (5000, 5000)` in the `image_resize_process` function within `image_processor.py`.
+- **Format**: Use command-line arguments (`--webp`, `--png`, `--jpg`, `--jpeg`) to change the output format without editing the script.
+- **Quality**: Use the `--quality` or `-q` argument to adjust image quality (1-100).
